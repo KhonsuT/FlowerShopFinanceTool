@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>Invoice</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/NotoSansSC-VariableFont_wght.ttf' %}">
+    <link rel="stylesheet" href="{% static 'css/invoice.css' %}">
+</head>
+<body> 
+    <div class="header-container container-fluid border-bottom border-2 border-dark">
+        <!-- Logo aligned to the left -->
+        <div class="logo-container">
+            <img class="logo-image" src="{% static 'images/sw_logo.jpg' %}" alt="Logo">
+        </div>
+        <!-- Heading centered in the page -->
+        <div class="w-100 text-center">
+            <h1 style="font-size: 3.5rem; margin: 0;">
+                INVOICE (账单)
+            </h1>
+        </div>
+    </div>
+    <div class="container w-75 my-5">
+        <div class="bg-dark">
+            <h1 class="text-light d-flex mx-1">FLOWERS: </h1>
+        </div>
+        <div>
+            <table class="table table-striped-columns table-secondary">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name (花名)</th>
+                    <th scope="col">Unit Price (单价)</th>
+                    <th scope="col">Qty. (数目)</th>
+                    <th scope="col">Total (金额)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for i in invoice %}
+                    <tr>
+                        <th scope="row">{{i.index}}</th>
+                        <td colspan="1">{{i.name}}</td>
+                        <td>$ {{i.price|floatformat:2}}</td>
+                        <td>{{i.quantity}}</td>
+                        <td>$ {{i.subtotal|floatformat:2}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+        </div>
+        <div class="bg-dark">
+            <h1 class="text-light d-flex mx-1">LABOR & MATERIAL: </h1>
+        </div>
+        <div>
+            <table class="table table-striped-columns table-secondary">
+                <thead>
+                  <tr>
+                    <th scope="col">Item (项目)</th>
+                    <th scope="col">Count (数量)</th>
+                    <th scope="col">Unit Cost (单价)</th>
+                    <th scope="col">Total (金额)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Labor</th>
+                        <td>{{labor.numberOfBouquets}}</td>
+                        <td>$ {{labor.cost|floatformat:2}}</td>
+                        <td>$ {{labor.subtotal|floatformat:2}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Material</th>
+                        <td>{{material.numberOfBouquets}}</td>
+                        <td>$ {{material.cost|floatformat:2}}</td>
+                        <td>$ {{material.subtotal|floatformat:2}}</td>
+                    </tr>
+                </tbody>
+              </table>
+        </div>
+        
+    </div>
+    <div class="container w-75 my-3 p-0 border-top border-2 border-dark d-flex justify-content-end">
+        <div class="my-1 mx-0 p-0" style="background-color: rgb(153, 148, 148);">
+            <h4 class="mx-3">Total (总共金额): $ {{grandtotal}}</h3>
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

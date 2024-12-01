@@ -1,0 +1,32 @@
+/* Logo section */
+.logo-image{
+    height: 75px;
+    width: auto; 
+}
+
+.header-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    height: 80px;
+    padding: 0;
+    margin: 0;
+}
+
+.logo-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+body {
+    font-family: 'NotoSansSC', sans-serif;
+}
+
+@font-face {
+    font-family: 'NotoSansSC';
+    src: url('/static/fonts/NotoSansSC-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900; /* Adjust the weight range according to the font's capabilities */
+    font-display: swap;
+}

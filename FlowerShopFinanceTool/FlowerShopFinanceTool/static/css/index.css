@@ -1,0 +1,45 @@
+.nav-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15vh;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    object-fit: cover;
+    z-index:-1;
+}
+
+.nav-text {
+    font-size: 5rem;
+}
+
+.nav-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    height: 15vh;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.search-card-img {
+    height: 10vh;
+    width: auto;
+    object-fit: cover;
+}
+
+html, body {
+    overflow: auto;
+}
+
+.container {
+    height: auto;
+    overflow: visible;
+}
+
+.search-results-container {
+    max-height: 50vh !important;
+    overflow-y: scroll;
+}
