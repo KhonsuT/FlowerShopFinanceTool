@@ -28,5 +28,6 @@ urlpatterns = [
     path("generate_invoice/", views.invoiceQuery, name="generate-invoice"),
     path("search/", views.search, name="search"),
     path("login/", views.login_user, name="login_user"),
-    path("addFlower/" , views.addFlower, name="addFlower")
-]
+    path("addFlower/" , views.addFlower, name="addFlower"),
+    path("addPrice/", views.addPrice,name="addPrice")
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

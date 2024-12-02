@@ -22,6 +22,7 @@ class Flower(models.Model):
 
 
 class Prices(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.ForeignKey(Flower, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     date = models.DateTimeField(default=timezone.now())
