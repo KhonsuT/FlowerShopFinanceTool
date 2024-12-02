@@ -53,7 +53,7 @@ def login_user(req):
 
             if user is not None:
                 login(req, user=user)
-                return redirect('default')
+                return redirect('homepage')
             else:
                 return render(req, 'login.html', context={'error': "Invalid Credentials"})
     except Exception as e:
@@ -64,7 +64,7 @@ def login_user(req):
 def logout_user(req):
     try:
         logout(req)
-        return redirect(default)
+        return redirect('homepage')
     except Exception as e:
         return JsonResponse({'error': e})
     
