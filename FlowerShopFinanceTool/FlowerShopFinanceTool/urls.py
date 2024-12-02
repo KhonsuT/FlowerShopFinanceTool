@@ -20,14 +20,16 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.default, name="default"),
-    path("generate_invoice/", views.invoiceQuery, name="generate-invoice"),
+    path("", views.homePage, name="homepage"),
+    path("generate_invoice/", views.invoiceQuery, name="generate_invoice"),
     path("search/", views.search, name="search"),
-    path("login/", views.login_user, name="login_user"),
     path("addFlower/" , views.addFlower, name="addFlower"),
-    path("addPrice/", views.addPrice,name="addPrice")
+    path("addPrice/", views.updatePrice,name="addPrice"),
+    path('login/', views.login_user, name='login'),
+    path('logout/', views.logout_user, name='logout'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
