@@ -137,6 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .then((data) => {
         getAllFlower();
+        addPriceForm.reset();
       })
       .catch((error) => {
         console.error('Error:', error);
